@@ -2,9 +2,55 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
+//Set up variables for health, damage, experience, and to determine if they're dead
+    public float fHealth = 100f;
+    public float fLostHealth;
+    public int  iExp;
+    public bool bIsDead;
+    private int playerClickDamage = 0;
 
-	// Use this for initialization
-	void Start () {
+    //  public float minDam;
+    //	public float maxDam;
+    //  public float GDPS;
+
+    // Use this for initialization
+    public void recieveDamage(float dmg) {
+        fHealth -= dmg;
+    }
+
+    //Gives experience
+    public int xpDrop() {
+        return (iExp);
+    }
+
+    public void setPlayerClickDamage(int dmg) {
+        playerClickDamage = dmg;
+    }
+
+    public int getPlayerClickDamage() {
+        return (playerClickDamage);
+    }
+
+    void Start() {
+        iExp = 2;
+        bIsDead = false;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        //Checks to see how much damage it's taken
+        if (fHealth <= 0) {
+            bIsDead = true;
+        }
+        
+        if (Input.GetMouseButtonDown(0)) {
+            recieveDamage(playerClickDamage);
+        }
+    }
+}
+
+/*// Use this for initialization
+void Start () {
 	
 	}
 	
@@ -13,3 +59,4 @@ public class Enemy : MonoBehaviour {
 	
 	}
 }
+*/
