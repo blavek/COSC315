@@ -18,7 +18,7 @@ public class Game : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         foreach (Guildie g in guildies) {
-//            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
+            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
         }
 
         if (enemy.bIsDead) {

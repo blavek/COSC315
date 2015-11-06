@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Guildie : HeroClass {
     //Set up variables for health, damage, experience, and to determine if they're dead
-//    public float GHealth = 10f;
+	public float fHealth = 500f;
 //    public float minDam;
 //    public float maxDam;
     private float fDamage = 10f;
 //    public float GDPS;
-//    public int GExp;
+	public int gLevel;
+	public int gExp;
+	public int expCap = 25;
 //    public bool GDead;
 
     // Use this for initialization
@@ -27,14 +29,27 @@ public class Guildie : HeroClass {
         }
         if (GDead) {
             Destroy(gameObject);
-        }
-*/
-    }
-
-    //Calculates DPS
-    public float damagePerFrame(float time) {
-        Debug.Log(fDamage * time);
-        return (fDamage * time);
-//        GDPS = GDamage / Time.fixedTime;
-    }
+        }*/
+	}
+	
+	//Level up the guildie
+	public void levelUp(int experience){
+		gExp += experience;
+		if (gExp > expCap) {
+			gLevel++;
+			expCap += (25 * gLevel);
+		}
+	}
+	
+	//Receive damage from enemy
+	public void recieveDamage(float damage) {
+		fHealth -= damage;
+	}
+	
+	//Calculates DPS
+	public float damagePerFrame(float time) {
+		Debug.Log(fDamage * time);
+		return (fDamage * time);
+		//        GDPS = GDamage / Time.fixedTime;
+	}
 }

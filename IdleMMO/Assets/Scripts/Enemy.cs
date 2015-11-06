@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 //Set up variables for health, damage, experience, and to determine if they're dead
     public float fHealth = 100f;
+	public float copyHealth;
     public float fLostHealth;
     public int  iExp;
     public bool bIsDead;
@@ -18,11 +19,17 @@ public class Enemy : MonoBehaviour {
         fHealth -= dmg;
     }
 
+	public void setHealth(int level){
+		fHealth *= level;
+	}
     //Gives experience
     public int xpDrop() {
         return (iExp);
     }
 
+	public void setXP(){
+		iExp += ((int)copyHealth / 50);
+	}
     public void setPlayerClickDamage(int dmg) {
         playerClickDamage = dmg;
     }
@@ -31,9 +38,20 @@ public class Enemy : MonoBehaviour {
         return (playerClickDamage);
     }
 
+	public float damagePerFrame(float time) {
+		return ((copyHealth / 15) * time);
+	}
+
+	public void Boss(int level){
+		if (level % 5 == 0) {
+			fHealth *= 10;
+		}
+	}
+
     void Start() {
-        iExp = 2;
-        bIsDead = false;
+		iExp = 0;
+		copyHealth = fHealth;
+		bIsDead = false;
     }
 
     // Update is called once per frame
