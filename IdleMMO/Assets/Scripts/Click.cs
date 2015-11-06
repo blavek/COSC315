@@ -15,6 +15,8 @@ public bool upgraded = false;
 		upgradedDamage () {
 			if (upgraded = true);
 			playerDamage = playerDamage * 2;
+
+			// change
 		}
 		
 	}
