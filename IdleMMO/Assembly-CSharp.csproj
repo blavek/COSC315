@@ -52,8 +52,6 @@
      <Compile Include="Assets\Scripts\Guildie.cs" />
      <Compile Include="Assets\Scripts\HeroClass.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <None Include="Assets\Scripts\Guildie2.txt" />
-     <None Include="Assets\Scripts\Enemy2.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
