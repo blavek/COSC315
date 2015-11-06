@@ -67,3 +67,13 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+IdleMMO/Assembly-CSharp-vs.csproj
+
+IdleMMO/Assembly-CSharp.csproj
+
+IdleMMO/IdleMMO-csharp.sln
+
+IdleMMO/IdleMMO.sln
+
+IdleMMO/IdleMMO.userprefs
