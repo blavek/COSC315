@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Game : MonoBehaviour {
@@ -8,6 +9,7 @@ public class Game : MonoBehaviour {
     private ArrayList guildies = new ArrayList();
     private int level = 1;
     private int subLevel = 1;
+    private Slider enemyHp;
 
     public int getLevel() {
         return (level);
@@ -15,6 +17,7 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        enemyHp = Slider.FindObjectOfType<Slider>();  // Coincidently returned the bar I was looking for
         enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
@@ -24,6 +27,7 @@ public class Game : MonoBehaviour {
         Debug.Log(enemy.fHealth);
         Guildie g = new Guildie();
         guildies.Add(g);
+        enemyHp.maxValue = enemy.fHealth;
 	}
 	
 	// Update is called once per frame
@@ -46,14 +50,16 @@ public class Game : MonoBehaviour {
             enemy.setXP(level);
             enemy.boss(level);
             Debug.Log(enemy.fHealth);
+            enemyHp.maxValue = enemy.fHealth;
 
-//            enemy.transform.position = new Vector3 (level, 0 ,0);
+            //            enemy.transform.position = new Vector3 (level, 0 ,0);
         }
 
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
         }
 
+        enemyHp.value = enemy.fHealth;
 //            Debug.Log(Time.deltaTime);
     }
 }

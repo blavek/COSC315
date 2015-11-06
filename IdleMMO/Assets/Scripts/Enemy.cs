@@ -15,6 +15,10 @@ public class Enemy : MonoBehaviour {
     //  public float GDPS;
 
     // Use this for initialization
+    public void getHealth() {
+//        return (fHealth);
+    }
+    
     public void recieveDamage(float dmg) {
         fHealth -= dmg;
     }
