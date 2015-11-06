@@ -10,7 +10,7 @@ public class Player : HeroClass {
     }
 
     public int getPlayerDamage() {
-        return (click.damage);
+        return (click.clickDamage());
     }
 
 	// Use this for initialization
