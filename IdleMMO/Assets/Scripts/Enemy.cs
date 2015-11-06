@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour {
         return (iExp);
     }
 
-	public void setXP(){
-		iExp += ((int)copyHealth / 50);
+	public void setXP(int level){
+		iExp = level;
 	}
     public void setPlayerClickDamage(int dmg) {
         playerClickDamage = dmg;
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour {
 		return ((copyHealth / 15) * time);
 	}
 
-	public void Boss(int level){
+	public void boss(int level){
 		if (level % 5 == 0) {
 			fHealth *= 10;
 		}

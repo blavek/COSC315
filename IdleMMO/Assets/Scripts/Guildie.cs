@@ -48,7 +48,7 @@ public class Guildie : HeroClass {
 	
 	//Calculates DPS
 	public float damagePerFrame(float time) {
-		Debug.Log(fDamage * time);
+//		Debug.Log(fDamage * time);
 		return (fDamage * time);
 		//        GDPS = GDamage / Time.fixedTime;
 	}

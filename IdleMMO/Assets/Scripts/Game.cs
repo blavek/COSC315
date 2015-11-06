@@ -6,11 +6,22 @@ public class Game : MonoBehaviour {
     private Enemy enemy;
     private Player player = new Player();
     private ArrayList guildies = new ArrayList();
+    private int level = 1;
+    private int subLevel = 1;
+
+    public int getLevel() {
+        return (level);
+    }
 
 	// Use this for initialization
 	void Start () {
         enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
+        enemy.setHealth(level);
+        enemy.setXP(level);
+        enemy.boss(level);
+
+        Debug.Log(enemy.fHealth);
         Guildie g = new Guildie();
         guildies.Add(g);
 	}
@@ -22,10 +33,23 @@ public class Game : MonoBehaviour {
         }
 
         if (enemy.bIsDead) {
+            if (--subLevel <= 0) {
+                level++;
+                subLevel = 1;
+            }
+
             player.addXp(enemy.xpDrop());
-            Destroy(enemy);
+            GameObject.Destroy(enemy.gameObject);
+
             enemy = Instantiate(enemyPrefab);
+            enemy.setHealth(level);
+            enemy.setXP(level);
+            enemy.boss(level);
+            Debug.Log(enemy.fHealth);
+
+//            enemy.transform.position = new Vector3 (level, 0 ,0);
         }
+
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
         }
