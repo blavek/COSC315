@@ -2,6 +2,16 @@
 using System.Collections;
 
 public class Player : HeroClass {
+    Click click = new Click();
+    private int exp = 0;
+
+    public void addXp(int amt) {
+        exp += amt;
+    }
+
+    public int getPlayerDamage() {
+        return (click.damage);
+    }
 
 	// Use this for initialization
 	void Start () {
