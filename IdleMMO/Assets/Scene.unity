@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &176064519
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dc316c9755c0b46bc2c5d7a44afd87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 11431328, guid: 00a5362d8869673428967e22927449af, type: 2}
+  enemyPrefab: {fileID: 11493714, guid: bc96d627635aa354689a0aabfd3fd6ca, type: 2}
 --- !u!4 &176064521
 Transform:
   m_ObjectHideFlags: 0
@@ -300,35 +302,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22468904, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22404096, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: .430626035
       objectReference: {fileID: 0}
     - target: {fileID: 22404096, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22404096, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: .999153972
       objectReference: {fileID: 0}
     - target: {fileID: 22470306, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22470306, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22449050, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22449050, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22456292, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_AnchorMin.y
