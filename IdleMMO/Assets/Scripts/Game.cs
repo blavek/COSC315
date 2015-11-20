@@ -8,29 +8,39 @@ public class Game : MonoBehaviour {
     private Player player = new Player();
     private ArrayList guildies = new ArrayList();
     private int level = 1;
-    private int subLevel = 1;
+    private int subLevel = 10;
     private Slider enemyHp;
+	private Slider xpBar;
 
     public int getLevel() {
         return (level);
     }
 
+	public void buyGuildie() {
+		Guildie g = new Guildie();
+		guildies.Add(g);
+	}
+
 	// Use this for initialization
 	void Start () {
-//        enemyHp = Slider.FindObjectOfType<Slider>();  // Coincidently returned the bar I was looking for
 		enemyHp = GameObject.FindWithTag("EnemyHp").GetComponent<Slider>();
+		xpBar = GameObject.FindWithTag("XpBar").GetComponent<Slider>();
         enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
         enemy.setXP(level);
         enemy.boss(level);
-
-        Debug.Log(enemy.fHealth);
-        Guildie g = new Guildie();
-        guildies.Add(g);
-        enemyHp.maxValue = enemy.fHealth;
+//        Guildie g = new Guildie();
+//        guildies.Add(g);
+        enemyHp.maxValue = enemy.getHealth ();
 	}
-	
+
+	void updateUI() {
+		enemyHp.value = enemy.getHealth();
+		xpBar.value = player.getXp();
+		xpBar.maxValue = player.getXpToLevel();
+	}
+
 	// Update is called once per frame
 	void Update () {
         foreach (Guildie g in guildies) {
@@ -40,27 +50,27 @@ public class Game : MonoBehaviour {
         if (enemy.bIsDead) {
             if (--subLevel <= 0) {
                 level++;
-                subLevel = 1;
+				if (level % 5 != 0) {
+                	subLevel = 10;
+				} else {
+					subLevel = 1;
+				}
             }
 
-            player.addXp(enemy.xpDrop());
+			player.addXp(enemy.xpDrop());
             GameObject.Destroy(enemy.gameObject);
 
             enemy = Instantiate(enemyPrefab);
             enemy.setHealth(level);
             enemy.setXP(level);
             enemy.boss(level);
-            Debug.Log(enemy.fHealth);
-            enemyHp.maxValue = enemy.fHealth;
-
-            //            enemy.transform.position = new Vector3 (level, 0 ,0);
+			enemyHp.maxValue = enemy.getHealth();
         }
 
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
         }
 
-        enemyHp.value = enemy.fHealth;
-//            Debug.Log(Time.deltaTime);
+		updateUI();
     }
 }

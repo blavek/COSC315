@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 //Set up variables for health, damage, experience, and to determine if they're dead
-    public float fHealth = 100f;
+    private float fHealth = 100f;
 	public float copyHealth;
     public float fLostHealth;
     public int  iExp;
@@ -17,8 +17,8 @@ public class Enemy : MonoBehaviour {
     //  public float GDPS;
 
     // Use this for initialization
-    public void getHealth() {
-//        return (fHealth);
+    public float getHealth() {
+        return (fHealth);
     }
     
     public void recieveDamage(float dmg) {
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour {
     }
 
 	public void setXP(int level){
-		iExp = level;
+		iExp = level * 10;
 	}
     public void setPlayerClickDamage(int dmg) {
         playerClickDamage = dmg;
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour {
 	}
 
     void Start() {
-		iExp = 0;
+//		iExp = 0;
 		copyHealth = fHealth;
 		bIsDead = false;
 		possibleSprites = new string[]{"slime","rat","bear","rat king"};
