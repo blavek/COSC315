@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyHp
+  - PlayerHP
+  - Party1HP
+  - Party2HP
+  - XpBar
+  - Ability1
+  - Ability2
+  - Ability3
+  - Ability4
   layers:
   - Default
   - TransparentFX
