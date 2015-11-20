@@ -17,7 +17,8 @@ public class Game : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        enemyHp = Slider.FindObjectOfType<Slider>();  // Coincidently returned the bar I was looking for
+//        enemyHp = Slider.FindObjectOfType<Slider>();  // Coincidently returned the bar I was looking for
+		enemyHp = GameObject.FindWithTag("EnemyHp").GetComponent<Slider>();
         enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
