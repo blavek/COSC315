@@ -11,6 +11,7 @@ public class Guildie : HeroClass {
 	public int gLevel;
 	public int gExp;
 	public int expCap = 25;
+	public static int gNumber = 0;
 //    public bool GDead;
 
     // Use this for initialization
@@ -31,11 +32,24 @@ public class Guildie : HeroClass {
             Destroy(gameObject);
         }*/
 	}
+
+	//States how much it costs to buy a guildie which is based on the number of guildies
+	public int guildiePrice(){
+		int cost = 100 + 100 * gNumber;
+		return cost;
+	}
+
+	//Upgrades the guildie
+	public void guildieUpgrade(){
+		gExp -= (25 * gLevel);
+		fDamage = 10f * gLevel;
+		fHealth += 50f;
+	}
 	
 	//Level up the guildie
 	public void levelUp(int experience){
 		gExp += experience;
-		if (gExp > expCap) {
+		if (gExp >= expCap) {
 			gLevel++;
 			expCap += (25 * gLevel);
 		}

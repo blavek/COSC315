@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
     public float fLostHealth;
     public int  iExp;
     public bool bIsDead;
+	public bool unshrink;
     private int playerClickDamage = 0;
 	public string enemySprite;
 	public string[] possibleSprites;
@@ -79,9 +80,18 @@ public class Enemy : MonoBehaviour {
         if (fHealth <= 0) {
             bIsDead = true;
         }
+
+		//This unshrinks the enemy after it has been shrunk
+		if (unshrink) {
+			transform.localScale += new Vector3(0.02F, 0.02f, 0.02f);
+			unshrink = false;
+		}
         
+		//The enemy shrinks and takes damage based on mouse clicks
         if (Input.GetMouseButtonDown(0)) {
+			transform.localScale += new Vector3(-0.02F, -0.02f, -0.02f);
             recieveDamage(playerClickDamage);
+			unshrink = true;
         }
     }
 }
