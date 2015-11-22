@@ -5,7 +5,7 @@ using System.Collections;
 public class Game : MonoBehaviour {
     public Enemy enemyPrefab;
     private Enemy enemy;
-    private Player player = new Player();
+    protected Player player = new Player();
     private ArrayList guildies = new ArrayList();
     private int level = 1;
     private int subLevel = 10;
@@ -19,6 +19,10 @@ public class Game : MonoBehaviour {
 	public void buyGuildie() {
 		Guildie g = new Guildie();
 		guildies.Add(g);
+	}
+
+	public void buyClickUpgrade() {
+		player.buyClick();
 	}
 
 	// Use this for initialization

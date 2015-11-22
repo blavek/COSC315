@@ -226,6 +226,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11481850, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1092,7 +1096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11455192, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buyGuildie
+      value: buyClickUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 11455192, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1124,7 +1128,47 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11481934, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
       propertyPath: m_Text
+      value: Upgrade Click
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481934, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481934, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11481934, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 176064520}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buyGuildie
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455302, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471494, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_Text
       value: Buy Guildie
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471494, guid: c918e651f10a05f4e97960bb5619c499, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c918e651f10a05f4e97960bb5619c499, type: 2}

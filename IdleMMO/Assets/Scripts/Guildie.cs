@@ -4,33 +4,28 @@ using System.Collections;
 public class Guildie : HeroClass {
     //Set up variables for health, damage, experience, and to determine if they're dead
 	public float fHealth = 500f;
-//    public float minDam;
-//    public float maxDam;
     private float fDamage = 10f;
-//    public float GDPS;
 	public int gLevel;
 	public int gExp;
 	public int expCap = 25;
 	public static int gNumber = 0;
-//    public bool GDead;
+	private int gMember;
+	private float tDelay = 1.0f;
 
+	public Guildie() {
+		gNumber++;
+		gMember = gNumber;
+		gExp = 0;
+		fDamage = 10f * gMember;
+		fHealth = fHealth * gMember;
+		Debug.Log("Created Guild Member " + gMember);
+	}
     // Use this for initialization
     void Start() {
-//        fDamage = 10f;
-//        maxDam = 1.5f;
     }
 
     // Update is called once per frame
     void Update() {
-/*
-        GDamage = Random.Range(minDam, maxDam);
-        DPS();
-        if (GHealth <= 0) {
-            GDead = true;
-        }
-        if (GDead) {
-            Destroy(gameObject);
-        }*/
 	}
 
 	//States how much it costs to buy a guildie which is based on the number of guildies
@@ -42,7 +37,7 @@ public class Guildie : HeroClass {
 	//Upgrades the guildie
 	public void guildieUpgrade(){
 		gExp -= (25 * gLevel);
-		fDamage = 10f * gLevel;
+		fDamage = fDamage * gLevel;
 		fHealth += 50f;
 	}
 	
@@ -62,7 +57,12 @@ public class Guildie : HeroClass {
 	
 	//Calculates DPS
 	public float damagePerFrame(float time) {
-//		Debug.Log(fDamage * time);
+		tDelay -= time;
+
+		if (tDelay <= 0) {
+			Debug.Log("Guildie " + gMember + "does " + fDamage + " dps");
+			tDelay = 1;
+		}
 		return (fDamage * time);
 		//        GDPS = GDamage / Time.fixedTime;
 	}

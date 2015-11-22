@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : HeroClass {
-    Click click = new Click();
+    protected Click click = new Click();
     private int exp = 0;
 	private int playerLevel = 1;
 	private int xpToLevel = 100;
@@ -16,8 +16,12 @@ public class Player : HeroClass {
 			playerLevel++;
 		}
 
-		Debug.Log ("Adding " + amt + " exp");
+//		Debug.Log ("Adding " + amt + " exp");
     }
+
+	public void buyClick() {
+		click.upgradeDamage();
+	}
 
 	public int getXpToLevel() {
 		return xpToLevel;

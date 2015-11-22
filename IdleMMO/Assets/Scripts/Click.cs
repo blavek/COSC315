@@ -7,7 +7,7 @@ public class Click {
     public int playerDamage = 1; 
     public bool upgraded = false;
 
-    public void upgradedDamage() {
+    public void upgradeDamage() {
         playerDamage = playerDamage * 2;
     }
 
