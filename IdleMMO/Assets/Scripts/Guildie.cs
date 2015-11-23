@@ -10,7 +10,7 @@ public class Guildie : HeroClass {
 	public int expCap = 25;
 	public static int gNumber = 0;
 	private int gMember;
-	private float tDelay = 1.0f;
+	private static float tDelay = 1.0f;
 
 	public Guildie() {
 		gNumber++;
@@ -26,6 +26,10 @@ public class Guildie : HeroClass {
 
     // Update is called once per frame
     void Update() {
+	}
+
+	public float getDPS() {
+		return (fDamage);
 	}
 
 	//States how much it costs to buy a guildie which is based on the number of guildies
@@ -57,11 +61,13 @@ public class Guildie : HeroClass {
 	
 	//Calculates DPS
 	public float damagePerFrame(float time) {
-		tDelay -= time;
+		if (gMember == 1)
+			tDelay -= time;
 
 		if (tDelay <= 0) {
 			Debug.Log("Guildie " + gMember + "does " + fDamage + " dps");
-			tDelay = 1;
+			if (gMember == gNumber)
+				tDelay = 1;
 		}
 		return (fDamage * time);
 		//        GDPS = GDamage / Time.fixedTime;

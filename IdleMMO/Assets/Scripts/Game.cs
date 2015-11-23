@@ -11,6 +11,9 @@ public class Game : MonoBehaviour {
     private int subLevel = 10;
     private Slider enemyHp;
 	private Slider xpBar;
+	private RectTransform clickDmg;
+	private RectTransform guildDmg;
+	private float guildieDPS = 0;
 
     public int getLevel() {
         return (level);
@@ -19,6 +22,7 @@ public class Game : MonoBehaviour {
 	public void buyGuildie() {
 		Guildie g = new Guildie();
 		guildies.Add(g);
+		guildieDPS += g.getDPS();
 	}
 
 	public void buyClickUpgrade() {
@@ -29,7 +33,10 @@ public class Game : MonoBehaviour {
 	void Start () {
 		enemyHp = GameObject.FindWithTag("EnemyHp").GetComponent<Slider>();
 		xpBar = GameObject.FindWithTag("XpBar").GetComponent<Slider>();
-        enemy = Instantiate(enemyPrefab);
+		clickDmg = GameObject.FindWithTag("ClickDamage").GetComponent<RectTransform>();
+		guildDmg = GameObject.FindWithTag("GuildieDamage").GetComponent<RectTransform>();
+
+		enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
         enemy.setXP(level);
@@ -43,13 +50,16 @@ public class Game : MonoBehaviour {
 		enemyHp.value = enemy.getHealth();
 		xpBar.value = player.getXp();
 		xpBar.maxValue = player.getXpToLevel();
+		clickDmg.GetComponent<Text>().text = "Player Damage\n" + player.getPlayerDamage() + " Per Click";
+		guildDmg.GetComponent<Text>().text = "Guild Damage\n" + guildieDPS + " DPS";
 	}
 
 	// Update is called once per frame
 	void Update () {
-        foreach (Guildie g in guildies) {
-            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
-        }
+//        foreach (Guildie g in guildies) {
+//            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
+//		}
+		enemy.recieveDamage(guildieDPS * Time.deltaTime);
 
         if (enemy.bIsDead) {
             if (--subLevel <= 0) {

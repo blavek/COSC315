@@ -13,6 +13,8 @@ TagManager:
   - Ability2
   - Ability3
   - Ability4
+  - ClickDamage
+  - GuildieDamage
   layers:
   - Default
   - TransparentFX
