@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Guildie.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy.cs">
     <Files>
-      <File FileName="Assets\Scripts\Guildie.cs" Line="13" Column="29" />
-      <File FileName="Assets\Scripts\Game.cs" Line="20" Column="1" />
-      <File FileName="Assets\Scripts\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Click.cs" Line="1" Column="1" />
+      <File FileName="../../../New Unity Project 10/Assets/Standard Assets/Characters/FirstPersonCharacter/Prefabs/MakeSound.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/Game.cs" Line="90" Column="3" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Click.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Guildie.cs" Line="29" Column="3" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

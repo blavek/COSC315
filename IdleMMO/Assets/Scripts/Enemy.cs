@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour {
 
     // Use this for initialization
     public float getHealth() {
-        return (fHealth);
+        return fHealth;
     }
     
     public void recieveDamage(float dmg) {

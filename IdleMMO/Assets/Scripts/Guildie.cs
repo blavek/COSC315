@@ -32,6 +32,10 @@ public class Guildie : HeroClass {
 		return (fDamage);
 	}
 
+	public float getEXP(){
+		return (gExp);
+	}
+
 	//States how much it costs to buy a guildie which is based on the number of guildies
 	public int guildiePrice(){
 		int cost = 100 + 100 * gNumber;
