@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class Game : MonoBehaviour {
     public Enemy enemyPrefab;
     private Enemy enemy;
+	private Guildie guildie;
     protected Player player = new Player();
     private ArrayList guildies = new ArrayList();
     private int level = 1;
@@ -13,7 +14,12 @@ public class Game : MonoBehaviour {
 	private Slider xpBar;
 	private RectTransform clickDmg;
 	private RectTransform guildDmg;
+	private RectTransform enemyHP;
+	//private RectTransform numOfGuildies;
+	//public Text numberOfGuildies;
+	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
+
 
     public int getLevel() {
         return (level);
@@ -35,6 +41,10 @@ public class Game : MonoBehaviour {
 		xpBar = GameObject.FindWithTag("XpBar").GetComponent<Slider>();
 		clickDmg = GameObject.FindWithTag("ClickDamage").GetComponent<RectTransform>();
 		guildDmg = GameObject.FindWithTag("GuildieDamage").GetComponent<RectTransform>();
+		enemyHP = GameObject.FindWithTag ("EnemyHealth").GetComponent<RectTransform> ();
+		//numOfGuildies = GameObject.FindWithTag ("GuildMembers").GetComponent<RectTransform> ();
+
+		//numberOfGuildies = GameObject.GetComponent<Text>;
 
 		enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
@@ -52,6 +62,9 @@ public class Game : MonoBehaviour {
 		xpBar.maxValue = player.getXpToLevel();
 		clickDmg.GetComponent<Text>().text = "Player Damage\n" + player.getPlayerDamage() + " Per Click";
 		guildDmg.GetComponent<Text>().text = "Guild Damage\n" + guildieDPS + " DPS";
+		enemyHP.GetComponent<Text> ().text = "Enemy Health\n" + enemy.getHealth ();
+		//numOfGuildies.GetComponent<Text> ().text = "Number of Guildies\n" + guildie.gNumber;
+		//numberOfGuildies.GetComponent<Text>().text = "Enemy Health \n" + guildie.gNumber;
 	}
 
 	// Update is called once per frame
