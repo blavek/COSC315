@@ -4,11 +4,13 @@ using System.Collections;
 public class Player : HeroClass {
     protected Click click = new Click();
     private int exp = 0;
+	private int spendXp = 0;
 	private int playerLevel = 1;
 	private int xpToLevel = 100;
 
     public void addXp(int amt) {
         exp += amt;
+		spendXp += amt;
 
 		if (exp >= xpToLevel) {
 			exp = exp - xpToLevel;
