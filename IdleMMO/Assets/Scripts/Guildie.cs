@@ -8,7 +8,7 @@ public class Guildie : HeroClass {
 	public int gLevel;
 	public int gExp;
 	public int expCap = 25;
-	public int gNumber = 0;
+	public static int gNumber = 0;
 	private int gMember;
 	private static float tDelay = 1.0f;
 
@@ -39,6 +39,9 @@ public class Guildie : HeroClass {
 
 
 	//States how much it costs to buy a guildie which is based on the number of guildies
+	public int getGNumber() {
+		return gNumber;
+	}
 	public int guildiePrice(){
 		int cost = 100 + 100 * gNumber;
 		return cost;
