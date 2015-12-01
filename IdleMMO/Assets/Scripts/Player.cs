@@ -22,7 +22,10 @@ public class Player : HeroClass {
     }
 
 	public void buyClick() {
-		click.upgradeDamage();
+		if (spendXp >= click.getUpgradeCost()) {
+			spendXp -= click.getUpgradeCost();
+			click.upgradeDamage();
+		}
 	}
 
 	public int getXpToLevel() {
