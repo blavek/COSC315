@@ -15,7 +15,7 @@ public class Game : MonoBehaviour {
 	private RectTransform clickDmg;
 	private RectTransform guildDmg;
 	private RectTransform enemyHP;
-	//private RectTransform numOfGuildies;
+	private RectTransform numOfGuildies;
 	//public Text numberOfGuildies;
 	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
@@ -42,7 +42,7 @@ public class Game : MonoBehaviour {
 		clickDmg = GameObject.FindWithTag("ClickDamage").GetComponent<RectTransform>();
 		guildDmg = GameObject.FindWithTag("GuildieDamage").GetComponent<RectTransform>();
 		enemyHP = GameObject.FindWithTag ("EnemyHealth").GetComponent<RectTransform> ();
-		//numOfGuildies = GameObject.FindWithTag ("GuildMembers").GetComponent<RectTransform> ();
+		numOfGuildies = GameObject.FindWithTag ("GuildMembers").GetComponent<RectTransform> ();
 
 		//numberOfGuildies = GameObject.GetComponent<Text>;
 
@@ -57,13 +57,17 @@ public class Game : MonoBehaviour {
 	}
 
 	void updateUI() {
-		enemyHp.value = enemy.getHealth();
-		xpBar.value = player.getXp();
-		xpBar.maxValue = player.getXpToLevel();
-		clickDmg.GetComponent<Text>().text = "Player Damage\n" + player.getPlayerDamage() + " Per Click";
-		guildDmg.GetComponent<Text>().text = "Guild Damage\n" + guildieDPS + " DPS";
-		enemyHP.GetComponent<Text> ().text = "Enemy Health\n" + enemy.getHealth ();
-		//numOfGuildies.GetComponent<Text> ().text = "Number of Guildies\n" + guildie.gNumber;
+		enemyHp.value = enemy.getHealth ();
+		xpBar.value = player.getXp ();
+		xpBar.maxValue = player.getXpToLevel ();
+		clickDmg.GetComponent<Text> ().text = "Player Damage\n" + player.getPlayerDamage () + " Per Click";
+		guildDmg.GetComponent<Text> ().text = "Guild Damage\n" + guildieDPS + " DPS";
+		enemyHP.GetComponent<Text> ().text = "Enemy Health\n" + (int)enemy.getHealth ();
+
+		if (guildies.Count > 0) {
+			numOfGuildies.GetComponent<Text> ().text = "Number of Guildies\n" + guildies.Count;
+		}
+//			numOfGuildies.GetComponent<Text> ().text = "Number of Guildies\n" + guildie[0].getGNumber();
 		//numberOfGuildies.GetComponent<Text>().text = "Enemy Health \n" + guildie.gNumber;
 	}
 
