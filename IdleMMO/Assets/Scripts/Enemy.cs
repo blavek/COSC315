@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
 	public float copyHealth;
     public float fLostHealth;
     public int  iExp;
+    public float speed = 1f;
     public bool bIsDead;
 	public bool unshrink;
     private int playerClickDamage = 0;
@@ -55,6 +56,13 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
+    public void deathAni()
+    {
+        //portion of movement per frame
+        float direction = -1;
+        transform.position = new Vector3(Time.deltaTime * direction * speed, 0, 0);
+    }
+
 	//sets the sprite for the enemy
 	public void setSprite(/*int level*/){
 		int randint = Random.Range (1, possibleSprites.Length);
@@ -78,7 +86,9 @@ public class Enemy : MonoBehaviour {
     void Update() {
         //Checks to see how much damage it's taken
         if (fHealth <= 0) {
-            bIsDead = true;
+            //transform.position -= new Vector3(2f, 2f, 2f);
+            deathAni();
+            //bIsDead = true;
         }
 
 		//This unshrinks the enemy after it has been shrunk
