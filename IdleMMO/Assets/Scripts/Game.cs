@@ -5,6 +5,7 @@ using System.Collections;
 public class Game : MonoBehaviour {
     public Enemy enemyPrefab;
     private Enemy enemy;
+	private ArrayList dieingEnemies = new ArrayList();
 	private Guildie guildie;
     protected Player player = new Player();
     private ArrayList guildies = new ArrayList();
@@ -20,7 +21,9 @@ public class Game : MonoBehaviour {
 	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
 
-
+	public void ability1() {
+		player.click.activateAutoClick ();
+	}
     public int getLevel() {
         return (level);
     }
@@ -77,26 +80,32 @@ public class Game : MonoBehaviour {
 //            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
 //		}
 		enemy.recieveDamage(guildieDPS * Time.deltaTime);
-
-        if (enemy.bIsDead) {
-            if (--subLevel <= 0) {
-                level++;
+		if (enemy.bIsSpawnable) {
+			if (--subLevel <= 0) {
+				level++;
 				if (level % 5 != 0) {
-                	subLevel = 10;
+					subLevel = 10;
 				} else {
 					subLevel = 1;
 				}
-            }
+			}
 
+			dieingEnemies.Add (enemy);
 			player.addXp(enemy.xpDrop());
-            GameObject.Destroy(enemy.gameObject);
 
-            enemy = Instantiate(enemyPrefab);
-            enemy.setHealth(level);
-            enemy.setXP(level);
-            enemy.boss(level);
+			enemy = Instantiate(enemyPrefab);
+			enemy.setHealth(level);
+			enemy.setXP(level);
+			enemy.boss(level);
 			enemyHp.maxValue = enemy.getHealth();
-        }
+		}
+		
+		for (int i = 0; i < dieingEnemies.Count; i++) {
+			if (e.bIsDead) {
+				GameObject.Destroy (e.gameObject);
+				dieingEnemies.Remove (e);
+			}
+		}
 
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());

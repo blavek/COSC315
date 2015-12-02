@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Player : HeroClass {
-    protected Click click = new Click();
+    public Click click = new Click();
     private int exp = 0;
 	private int spendXp = 0;
 	private int playerLevel = 1;
