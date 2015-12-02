@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour {
 		copyHealth = fHealth;
 		bIsDead = false;
 		possibleSprites = new string[]{"slime","rat","bear","rat king"};
+        gameObject.name = "Enemy";
     }
 
     // Update is called once per frame
