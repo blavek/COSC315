@@ -53,7 +53,8 @@ public class Enemy : MonoBehaviour {
 
 	public void boss(int level){
 		if (level % 5 == 0) {
-			fHealth *= 10;
+            transform.localScale += new Vector3(0.2F, 0.2f, 0.2f);
+            fHealth *= 10;
 		}
 	}
 
