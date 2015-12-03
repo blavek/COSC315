@@ -53,7 +53,8 @@
      <Compile Include="Assets\Scripts\Guildie.cs" />
      <Compile Include="Assets\Scripts\HeroClass.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\enemyHPTextDisplay.cs" />
+     <Compile Include="Assets\Scripts\enemyHPTextDisplay.cs" />
+     <Compile Include="Assets\Scripts\numberOfGuildiesScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
