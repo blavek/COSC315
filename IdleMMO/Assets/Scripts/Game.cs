@@ -104,12 +104,15 @@ public class Game : MonoBehaviour {
 			enemyHp.maxValue = enemy.getHealth();
 		}
 		
+/*
 		for (int i = 0; i < dieingEnemies.Count; i++) {
-/*			if (e.bIsDead) {
+			if (e.bIsDead) {
 				GameObject.Destroy (e.gameObject);
 				dieingEnemies.Remove (e);
 			}
-		}*/
+		}
+*/
+		
 
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
@@ -117,5 +120,4 @@ public class Game : MonoBehaviour {
 
 		updateUI();
     }
-}
 }
