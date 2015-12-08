@@ -38,6 +38,10 @@ public class Game : MonoBehaviour {
 		player.buyClick();
 	}
 
+	public void buyGuildieUpgrade(){
+		guildie.guildieUpgrade ();
+	}
+
 	// Use this for initialization
 	void Start () {
 		enemyHp = GameObject.FindWithTag("EnemyHp").GetComponent<Slider>();
@@ -100,12 +104,15 @@ public class Game : MonoBehaviour {
 			enemyHp.maxValue = enemy.getHealth();
 		}
 		
+/*
 		for (int i = 0; i < dieingEnemies.Count; i++) {
 			if (e.bIsDead) {
 				GameObject.Destroy (e.gameObject);
 				dieingEnemies.Remove (e);
 			}
 		}
+*/
+		
 
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
