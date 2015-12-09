@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour {
 	public bool unshrink;
     private int playerClickDamage = 0;
 	public string enemySprite;
-	public string[] possibleSprites;
+	public Sprite[] possibleSprites;
+
 
     //  public float minDam;
     //	public float maxDam;
@@ -72,8 +73,10 @@ public class Enemy : MonoBehaviour {
 
 	//sets the sprite for the enemy
 	public void setSprite(/*int level*/){
-		int randint = Random.Range (1, possibleSprites.Length);
-		enemySprite = possibleSprites[randint-1];
+		int randint = Random.Range (0, possibleSprites.Length);
+		gameObject.GetComponent<SpriteRenderer> ().sprite = possibleSprites [randint];
+		Debug.Log (randint);
+		//		enemySprite = possibleSprites[randint-1];
 		/*if (level % 5 != 0) {
 			int randint = Random.Range (1, 3);
 			enemySprite = possibleSprites[randint-1];
@@ -86,8 +89,9 @@ public class Enemy : MonoBehaviour {
 //		iExp = 0;
 		copyHealth = fHealth;
 		bIsDead = false;
-		possibleSprites = new string[]{"slime","rat","bear","rat king"};
+//		possibleSprites = new string[]{"slime","rat","bear","rat king"};
         gameObject.name = "Enemy";
+		setSprite ();
     }
 
     // Update is called once per frame

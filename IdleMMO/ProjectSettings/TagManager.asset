@@ -17,6 +17,7 @@ TagManager:
   - GuildieDamage
   - EnemyHealth
   - GuildMembers
+  - GuildButtons
   layers:
   - Default
   - TransparentFX

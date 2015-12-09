@@ -17,6 +17,7 @@ public class Game : MonoBehaviour {
 	private RectTransform guildDmg;
 	private RectTransform enemyHP;
 	private RectTransform numOfGuildies;
+	public Button guildieUI;
 	//public Text numberOfGuildies;
 	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
@@ -32,6 +33,11 @@ public class Game : MonoBehaviour {
 		Guildie g = new Guildie();
 		guildies.Add(g);
 		guildieDPS += g.getDPS();
+		GameObject tempCanvas = GameObject.FindGameObjectWithTag ("GuildButtons");
+//		tempCanvas.AddComponent<Button>();
+		Button tempButton = GameObject.Instantiate (guildieUI);
+		tempButton.transform.SetParent (tempCanvas.transform);
+
 	}
 
 	public void buyClickUpgrade() {

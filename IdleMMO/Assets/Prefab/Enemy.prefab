@@ -48,7 +48,11 @@ MonoBehaviour:
   bIsSpawnable: 0
   unshrink: 0
   enemySprite: 
-  possibleSprites: []
+  possibleSprites:
+  - {fileID: 21300000, guid: b2596fb5a4ea84652b21377f6cc07351, type: 3}
+  - {fileID: 21300000, guid: 186ed28f068f04361a7ce79a2568e743, type: 3}
+  - {fileID: 21300000, guid: 175e41ea566f5486d92c48bc2c5dd79d, type: 3}
+  - {fileID: 21300000, guid: 4d7d5e533463949bb9866bd4b5b265aa, type: 3}
 --- !u!212 &21283648
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -67,9 +71,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -84,6 +86,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: possibleSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: 0
@@ -108,6 +114,26 @@ Prefab:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bf4503f0cf377483a84cdad24c225704,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: possibleSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: b2596fb5a4ea84652b21377f6cc07351,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: possibleSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 186ed28f068f04361a7ce79a2568e743,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: possibleSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 175e41ea566f5486d92c48bc2c5dd79d,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: possibleSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d7d5e533463949bb9866bd4b5b265aa,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
