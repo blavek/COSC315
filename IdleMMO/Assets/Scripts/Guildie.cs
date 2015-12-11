@@ -60,10 +60,12 @@ public class Guildie : HeroClass {
 		if (fDamage * 1.1f < 0)
 			return;
 
-		gExp -= (25 * gLevel);
-		fDamage = Mathf.Abs(fDamage * 1.1f);
-		fHealth += 50f;
-		gLevel++;
+		if (gLevel < 100) {
+			gExp -= (25 * gLevel);
+			fDamage = Mathf.Abs(fDamage * 1.1f);
+			fHealth += 50f;
+			gLevel++;
+		}
 
 		Debug.Log ("Guildie: " + gMember + " DPS: " + fDamage);
 	}
