@@ -35,6 +35,9 @@ public class Game : MonoBehaviour {
 		Debug.Log ("Calc DEEPS");
 		guildieDPS = 0;
 		for (var i = 0; i < guildies.Count && i < guildieButtons.Count; i++) {
+			if (guildieDPS + guildies[i].getDPS() < 0)
+				break;
+
 			guildieDPS += guildies[i].getDPS();
 			Text [] tempText = guildieButtons[i].GetComponentsInChildren<Text>();
 			tempText[0].text = "G: " + guildies[i].getGMember();
@@ -49,6 +52,9 @@ public class Game : MonoBehaviour {
 	public void buyGuildie() {
 		// Create the New Guildie
 		Guildie g = new Guildie();
+		if (g.getGNumber() > 36)
+			return;
+
 		guildies.Add(g);
 
 		// Get canvas for the button

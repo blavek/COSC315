@@ -57,8 +57,11 @@ public class Guildie : HeroClass {
 
 	//Upgrades the guildie
 	public void guildieUpgrade(){
+		if (fDamage * 1.1f < 0)
+			return;
+
 		gExp -= (25 * gLevel);
-		fDamage = fDamage * 1.1f;
+		fDamage = Mathf.Abs(fDamage * 1.1f);
 		fHealth += 50f;
 		gLevel++;
 
