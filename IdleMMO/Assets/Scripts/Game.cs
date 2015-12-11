@@ -96,6 +96,7 @@ public class Game : MonoBehaviour {
 		enemyHP = GameObject.FindWithTag ("EnemyHealth").GetComponent<RectTransform> ();
 		numOfGuildies = GameObject.FindWithTag ("GuildMembers").GetComponent<RectTransform> ();
 
+
 		//numberOfGuildies = GameObject.GetComponent<Text>;
 
 		enemy = Instantiate(enemyPrefab);
