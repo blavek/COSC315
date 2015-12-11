@@ -52,10 +52,13 @@ public class Enemy : MonoBehaviour {
 		return ((copyHealth / 15) * time);
 	}
 
-	public void boss(int level){
+	public void boss(int level = 0){
+		Game goLevel = GameObject.FindObjectOfType<Game>();
+		level = goLevel.level;
+
 		if (level % 5 == 0) {
-            transform.localScale += new Vector3(0.2F, 0.2f, 0.2f);
-            fHealth *= 10;
+			transform.localScale = transform.localScale * 2;
+			fHealth *= 10;
 		}
 	}
 
@@ -73,9 +76,14 @@ public class Enemy : MonoBehaviour {
 
 	//sets the sprite for the enemy
 	public void setSprite(/*int level*/){
+		Game level = GameObject.FindObjectOfType<Game>();
+		float lvlDelta = (float)level.level * .001f;
+		if (lvlDelta > 3)
+			lvlDelta = 3;
+
 		int randint = Random.Range (0, possibleSprites.Length);
 		gameObject.GetComponent<SpriteRenderer> ().sprite = possibleSprites [randint];
-		transform.localScale = new Vector3(0.01F, 0.01f, 0.01f);
+		transform.localScale = new Vector3(0.2F + lvlDelta, 0.2f + lvlDelta, 0.2f + lvlDelta);
 //		Debug.Log (randint);
 		//		enemySprite = possibleSprites[randint-1];
 		/*if (level % 5 != 0) {
@@ -93,6 +101,7 @@ public class Enemy : MonoBehaviour {
 //		possibleSprites = new string[]{"slime","rat","bear","rat king"};
         gameObject.name = "Enemy";
 		setSprite ();
+		boss ();
     }
 
     // Update is called once per frame

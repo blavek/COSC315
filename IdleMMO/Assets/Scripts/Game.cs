@@ -102,7 +102,7 @@ public class Game : MonoBehaviour {
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
         enemy.setXP(level);
-        enemy.boss(level);
+//        enemy.boss(level);
 //        Guildie g = new Guildie();
 //        guildies.Add(g);
         enemyHp.maxValue = enemy.getHealth ();
@@ -156,7 +156,7 @@ public class Game : MonoBehaviour {
 			enemy = Instantiate(enemyPrefab);
 			enemy.setHealth(level);
 			enemy.setXP(level);
-			enemy.boss(level);
+//			enemy.boss(level);
 			enemyHp.maxValue = enemy.getHealth();
 		}
 		
