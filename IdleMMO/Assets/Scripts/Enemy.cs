@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour {
 	public void setSprite(/*int level*/){
 		int randint = Random.Range (0, possibleSprites.Length);
 		gameObject.GetComponent<SpriteRenderer> ().sprite = possibleSprites [randint];
+		transform.localScale = new Vector3(0.01F, 0.01f, 0.01f);
 //		Debug.Log (randint);
 		//		enemySprite = possibleSprites[randint-1];
 		/*if (level % 5 != 0) {
