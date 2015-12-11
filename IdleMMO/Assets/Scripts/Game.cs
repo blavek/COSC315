@@ -133,6 +133,17 @@ public class Game : MonoBehaviour {
 				}
 			}
 
+			Text lvl = GameObject.FindWithTag("Level").GetComponent<Text>();
+
+			if (level % 5 != 0) {
+				lvl.text = "Level " + level +"\n" + subLevel + " Enemies Left";
+			} else {
+				lvl.text = "Level " + level +"\nBOSS LEVEL";
+			}
+
+
+
+
 			dieingEnemies.Add (enemy);
 			player.addXp(enemy.xpDrop());
 

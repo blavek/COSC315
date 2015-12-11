@@ -18,6 +18,10 @@ TagManager:
   - EnemyHealth
   - GuildMembers
   - GuildButtons
+  - GuildieNumber
+  - GuildieLvl
+  - GuildieDPS
+  - Level
   layers:
   - Default
   - TransparentFX

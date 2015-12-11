@@ -60,6 +60,7 @@ public class Guildie : HeroClass {
 		gExp -= (25 * gLevel);
 		fDamage = fDamage * 1.1f;
 		fHealth += 50f;
+		gLevel++;
 
 		Debug.Log ("Guildie: " + gMember + " DPS: " + fDamage);
 	}
