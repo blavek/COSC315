@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour {
 	public void setSprite(/*int level*/){
 		int randint = Random.Range (0, possibleSprites.Length);
 		gameObject.GetComponent<SpriteRenderer> ().sprite = possibleSprites [randint];
-		Debug.Log (randint);
+//		Debug.Log (randint);
 		//		enemySprite = possibleSprites[randint-1];
 		/*if (level % 5 != 0) {
 			int randint = Random.Range (1, 3);

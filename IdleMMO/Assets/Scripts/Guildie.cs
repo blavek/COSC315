@@ -12,6 +12,10 @@ public class Guildie : HeroClass {
 	private int gMember;
 	private static float tDelay = 1.0f;
 
+	public int getLevel() {
+		return gLevel;
+	}
+
 	public Guildie() {
 		gNumber++;
 		gMember = gNumber;
@@ -39,6 +43,10 @@ public class Guildie : HeroClass {
 
 
 	//States how much it costs to buy a guildie which is based on the number of guildies
+	public int getGMember() {
+		return gMember;
+	}
+
 	public int getGNumber() {
 		return gNumber;
 	}
@@ -50,8 +58,10 @@ public class Guildie : HeroClass {
 	//Upgrades the guildie
 	public void guildieUpgrade(){
 		gExp -= (25 * gLevel);
-		fDamage = fDamage * gLevel;
+		fDamage = fDamage * 1.1f;
 		fHealth += 50f;
+
+		Debug.Log ("Guildie: " + gMember + " DPS: " + fDamage);
 	}
 	
 	//Level up the guildie

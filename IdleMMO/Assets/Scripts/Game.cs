@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game : MonoBehaviour {
     public Enemy enemyPrefab;
     private Enemy enemy;
-	private ArrayList dieingEnemies = new ArrayList();
+	private List<Enemy> dieingEnemies = new List<Enemy>();
 	private Guildie guildie;
     protected Player player = new Player();
-    private ArrayList guildies = new ArrayList();
+    private List<Guildie> guildies = new List<Guildie>();
     private int level = 1;
     private int subLevel = 10;
     private Slider enemyHp;
@@ -18,6 +19,7 @@ public class Game : MonoBehaviour {
 	private RectTransform enemyHP;
 	private RectTransform numOfGuildies;
 	public Button guildieUI;
+	private List<Button> guildieButtons = new List<Button>();
 	//public Text numberOfGuildies;
 	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
@@ -29,15 +31,46 @@ public class Game : MonoBehaviour {
         return (level);
     }
 
+	private void calcGuildieDPS() {
+		Debug.Log ("Calc DEEPS");
+		guildieDPS = 0;
+		for (var i = 0; i < guildies.Count && i < guildieButtons.Count; i++) {
+			guildieDPS += guildies[i].getDPS();
+			Text [] tempText = guildieButtons[i].GetComponentsInChildren<Text>();
+			tempText[0].text = "G: " + guildies[i].getGMember();
+			tempText[1].text = "LVL: " + guildies[i].getLevel();
+			tempText[2].text = "DPS: " + (int) guildies[i].getDPS();
+			Debug.Log (tempText[2].text);
+		}
+
+		guildieDPS = (int) guildieDPS;
+	}
+
 	public void buyGuildie() {
+		// Create the New Guildie
 		Guildie g = new Guildie();
 		guildies.Add(g);
-		guildieDPS += g.getDPS();
+
+		// Get canvas for the button
 		GameObject tempCanvas = GameObject.FindGameObjectWithTag ("GuildButtons");
 //		tempCanvas.AddComponent<Button>();
+		// Create the guildies button
 		Button tempButton = GameObject.Instantiate (guildieUI);
-		tempButton.transform.SetParent (tempCanvas.transform);
 
+		// Add the button to the canvas
+		tempButton.transform.SetParent (tempCanvas.transform);
+        
+		// set the button functionality
+		tempButton.onClick.AddListener(guildies[guildies.Count - 1].guildieUpgrade);
+		tempButton.onClick.AddListener(calcGuildieDPS);
+		Text [] tempText = tempButton.GetComponentsInChildren<Text>();
+		tempText[0].text = "G: " + g.getGMember();
+		tempText[1].text = "LVL: " + g.getLevel();
+		tempText[2].text = "DPS: " + (int) g.getDPS();
+
+		// store the button for later use
+		guildieButtons.Add(tempButton);
+		calcGuildieDPS();
 	}
 
 	public void buyClickUpgrade() {
