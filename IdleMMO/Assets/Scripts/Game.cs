@@ -10,7 +10,7 @@ public class Game : MonoBehaviour {
 	private Guildie guildie;
     protected Player player = new Player();
     private List<Guildie> guildies = new List<Guildie>();
-    private int level = 1;
+    public int level = 1;
     private int subLevel = 10;
     private Slider enemyHp;
 	private Slider xpBar;
@@ -102,7 +102,7 @@ public class Game : MonoBehaviour {
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
         enemy.setXP(level);
-        enemy.boss(level);
+//        enemy.boss(level);
 //        Guildie g = new Guildie();
 //        guildies.Add(g);
         enemyHp.maxValue = enemy.getHealth ();
@@ -156,7 +156,7 @@ public class Game : MonoBehaviour {
 			enemy = Instantiate(enemyPrefab);
 			enemy.setHealth(level);
 			enemy.setXP(level);
-			enemy.boss(level);
+//			enemy.boss(level);
 			enemyHp.maxValue = enemy.getHealth();
 		}
 		
