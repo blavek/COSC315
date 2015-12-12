@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 public class enemyHPTextDisplay : Enemy {
-
+	//Sets variable to create text for enemy health bar
 	public Text enemyHPText;
 	private RectTransform enemyHealth;
 	
@@ -13,7 +13,7 @@ public class enemyHPTextDisplay : Enemy {
 		enemyHPText = GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
+	//Gets the varibale for health and turns it into an integer and then a string
 	void Update () {
 		int a;
 		a = (int)getHealth ();

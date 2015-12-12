@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Guildie : HeroClass {
-    //Set up variables for health, damage, experience, and to determine if they're dead
+    //Set up variables for health, damage, experience, guildie number, and to determine if they're dead
 	public float fHealth = 500f;
     private float fDamage = 10f;
 	public int gLevel;
@@ -12,10 +12,12 @@ public class Guildie : HeroClass {
 	private int gMember;
 	private static float tDelay = 1.0f;
 
+	//Gets the level for the guildie
 	public int getLevel() {
 		return gLevel;
 	}
 
+	//A contstructor that sets up the different variables for the guildie
 	public Guildie() {
 		gNumber++;
 		gMember = gNumber;
@@ -24,6 +26,7 @@ public class Guildie : HeroClass {
 		fHealth = fHealth * gMember;
 		Debug.Log("Created Guild Member " + gMember);
 	}
+
     // Use this for initialization
     void Start() {
     }
@@ -32,30 +35,33 @@ public class Guildie : HeroClass {
     void Update() {
 	}
 
+	//Gets the value for the DPS
 	public float getDPS() {
 		return (fDamage);
 	}
 
+	//Gets the value for the experience that the guildie has
 	public float getEXP(){
 		return (gExp);
 	}
-
-
 
 	//States how much it costs to buy a guildie which is based on the number of guildies
 	public int getGMember() {
 		return gMember;
 	}
 
+	//Gets the what number the guildie is
 	public int getGNumber() {
 		return gNumber;
 	}
+
+	//Determines how much any individual guildie costs
 	public int guildiePrice(){
 		int cost = 100 + 100 * gNumber;
 		return cost;
 	}
 
-	//Upgrades the guildie
+	//Upgrades the guildie until they reach the level cap of 100
 	public void guildieUpgrade(){
 		if (fDamage * 1.1f < 0)
 			return;

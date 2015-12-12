@@ -4,24 +4,27 @@ using System.Collections;
 public class Click
 {
 
-    //    public float monsterHealth = 10f;
+    //Sets up the variables needed to upgrade the functions
     public int playerDamage = 1;
     public bool upgraded = false;
     private int upgradeCost = 1;
     public int autoClick = 0;
     public bool acActivate = false;
 
+	//Upgrades the player damage and increases its cost
     public void upgradeDamage()
     {
         upgradeCost *= 2;
         playerDamage = playerDamage * 2;
     }
 
+	//Gets how much it costs to upgrade the click damage
     public int getUpgradeCost()
     {
         return (upgradeCost);
     }
 
+	//Does damage for each click
     public int clickDamage()
     {
         /*		if (Input.GetMouseButtonDown(0))
@@ -31,7 +34,7 @@ public class Click
         return (playerDamage);
     }
 
-    // the actial function
+    // the actual function
     public void activateAutoClick()
     {
         int autoClick = 0;

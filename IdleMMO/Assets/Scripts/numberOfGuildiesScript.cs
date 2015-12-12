@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-
+//Displays the number of guildies
 public class numberOfGuildiesScript : MonoBehaviour{
 	
 	public Text numberOfGuildies;

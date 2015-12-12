@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class Player : HeroClass {
+	//Sets up variables for click, experience, level, and experience to next level
     public Click click = new Click();
     private int exp = 0;
 	private int spendXp = 0;
 	private int playerLevel = 1;
 	private int xpToLevel = 100;
 
+	//Adds experience to level up character
     public void addXp(int amt) {
         exp += amt;
 		spendXp += amt;
@@ -21,6 +23,7 @@ public class Player : HeroClass {
 //		Debug.Log ("Adding " + amt + " exp");
     }
 
+	//Upgrades the click damage
 	public void buyClick() {
 		if (spendXp >= click.getUpgradeCost()) {
 			spendXp -= click.getUpgradeCost();
@@ -28,14 +31,17 @@ public class Player : HeroClass {
 		}
 	}
 
+	//Gets value for the experience needed to level up
 	public int getXpToLevel() {
 		return xpToLevel;
 	}
 
+	//Gets the value for experience
 	public int getXp () {
 		return exp;
 	}
 
+	//Gets the value for click damage
     public int getPlayerDamage() {
         return (click.clickDamage());
     }

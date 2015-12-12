@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Game : MonoBehaviour {
+	//Sets up variables for enemies, guildies, the player, and what level they are on
     public Enemy enemyPrefab;
     private Enemy enemy;
 	private List<Enemy> dieingEnemies = new List<Enemy>();
@@ -24,13 +25,18 @@ public class Game : MonoBehaviour {
 	//private RectTransform enemyHP;
 	private float guildieDPS = 0;
 
+	//Activates ability1 when the button is clicked
 	public void ability1() {
 		player.click.activateAutoClick ();
 	}
+
+	//Gets the level the player is on
     public int getLevel() {
         return (level);
     }
 
+	/*Keeps track of the combined damage of all the guildies as well as 
+	the guildie number, level, and DPS for each individual guildie*/ 
 	private void calcGuildieDPS() {
 		Debug.Log ("Calc DEEPS");
 		guildieDPS = 0;
@@ -79,16 +85,19 @@ public class Game : MonoBehaviour {
 		calcGuildieDPS();
 	}
 
+	//Allows the player to buy upgrades for their click damage
 	public void buyClickUpgrade() {
 		player.buyClick();
 	}
 
+	//Allows the player to upgrade their guildie's damage
 	public void buyGuildieUpgrade(){
 		guildie.guildieUpgrade ();
 	}
 
 	// Use this for initialization
 	void Start () {
+		//Initializes and displays all the GUI stuff with the needed information
 		enemyHp = GameObject.FindWithTag("EnemyHp").GetComponent<Slider>();
 		xpBar = GameObject.FindWithTag("XpBar").GetComponent<Slider>();
 		clickDmg = GameObject.FindWithTag("ClickDamage").GetComponent<RectTransform>();
@@ -98,6 +107,7 @@ public class Game : MonoBehaviour {
 
 		//numberOfGuildies = GameObject.GetComponent<Text>;
 
+		//Creates enemy and sets up all their attributes
 		enemy = Instantiate(enemyPrefab);
         enemy.setPlayerClickDamage(player.getPlayerDamage());
         enemy.setHealth(level);
@@ -108,6 +118,7 @@ public class Game : MonoBehaviour {
         enemyHp.maxValue = enemy.getHealth ();
 	}
 
+	//Updates the different parts of the GUI based on what happens
 	void updateUI() {
 		enemyHp.value = enemy.getHealth ();
 		xpBar.value = player.getXp ();
@@ -128,6 +139,7 @@ public class Game : MonoBehaviour {
 //        foreach (Guildie g in guildies) {
 //            enemy.recieveDamage(g.damagePerFrame(Time.deltaTime));
 //		}
+		//Has enemy receive damage and manages the different sublevels
 		enemy.recieveDamage(guildieDPS * Time.deltaTime);
 		if (enemy.bIsSpawnable) {
 			if (--subLevel <= 0) {
@@ -169,7 +181,7 @@ public class Game : MonoBehaviour {
 		}
 */
 		
-
+		//Resets player click damage if it doesn't equal player damage
         if (enemy.getPlayerClickDamage() != player.getPlayerDamage()) {
             enemy.setPlayerClickDamage(player.getPlayerDamage());
         }
